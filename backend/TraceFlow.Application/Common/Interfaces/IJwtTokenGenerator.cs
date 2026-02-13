@@ -1,0 +1,8 @@
+using TraceFlow.Domain.Entities;
+
+namespace TraceFlow.Application.Common.Interfaces;
+
+public interface IJwtTokenGenerator
+{
+    string GenerateToken(User user);
+}
