@@ -6,7 +6,10 @@ public enum BatchStatus
     ReadyForTransfer,
     InTransit,
     Received,
+    Processing,
     Processed,
+    Sold,
+    Recalled,
     Closed
 }
 

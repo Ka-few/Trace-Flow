@@ -31,12 +31,20 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
+# .NET Core build artifacts
+project.assets.json
+project.nuget.cache
+*.nuget.props
+*.nuget.targets
+*.csproj.nuget.dgspec.json
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+*.csproj.EntityFrameworkCore.targets
+
 # NuGet Packages
 *.nupkg
 **/packages/*
 !**/packages/build/
-*.nuget.props
-*.nuget.targets
 
 # Database files
 *.db
@@ -93,3 +101,27 @@ secrets.json
 
 # Node modules (if you have frontend)
 node_modules/
+
+# Build cache files
+*.cache
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+*.assets.cache
+*.csproj.CoreCompileInputs.cache
+*.csproj.FileListAbsolute.txt
+*.GeneratedMSBuildEditorConfig.editorconfig
+*.GlobalUsings.g.cs
+*.sourcelink.json
+*.genruntimeconfig.cache
+*.Up2Date
+
+# Compiled binaries
+*.dll
+*.pdb
+*.exe
+*.deps.json
+*.runtimeconfig.json
+
+# Ref/refint directories
+ref/
+refint/

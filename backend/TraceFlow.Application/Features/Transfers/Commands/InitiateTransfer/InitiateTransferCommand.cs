@@ -53,6 +53,13 @@ public class InitiateTransferCommandHandler : IRequestHandler<InitiateTransferCo
         if (batch.Status != BatchStatus.ReadyForTransfer)
              throw new DomainException("Batch is not in a 'ReadyForTransfer' state.");
 
+        // Validate destination Organization existence
+        var toOrganizationExists = await _context.Organizations
+            .AnyAsync(o => o.Id == request.ToOrganizationId, cancellationToken);
+
+        if (!toOrganizationExists)
+            throw new NotFoundException(nameof(Organization), request.ToOrganizationId);
+
         // Create the Transfer entity
         var transfer = new Transfer(
             request.BatchId,

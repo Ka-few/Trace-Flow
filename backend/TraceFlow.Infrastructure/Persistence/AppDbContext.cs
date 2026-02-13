@@ -26,6 +26,8 @@ public class AppDbContext : DbContext, IAppDbContext
     public DbSet<Transfer> Transfers => Set<Transfer>();
     public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
 
+    Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade IAppDbContext.Database => base.Database;
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
