@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0f4f8;
+  --color-primary-100: #d9e2ec;
+  --color-primary-200: #bcccdc;
+  --color-primary-300: #9fb3c8;
+  --color-primary-400: #829ab1;
+  --color-primary-500: #627d98;
+  --color-primary-600: #486581;
+  --color-primary-700: #334e68;
+  --color-primary-800: #243b53;
+  --color-primary-900: #102a43;
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    @apply bg-[#f8fafc] text-[#1e293b] antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .erp-card {
+    @apply bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden;
+  }
+  
+  .erp-table-header {
+    @apply bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-3 border-b border-gray-200 text-left;
+  }
+  
+  .erp-table-cell {
+    @apply px-4 py-3 border-b border-gray-100 text-sm text-gray-700 whitespace-nowrap;
+  }
+
+  .erp-button-primary {
+    @apply bg-primary-800 hover:bg-primary-900 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm;
+  }
+
+  .erp-input {
+    @apply w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all;
+  }
+
+  /* Compact spacing for ERP */
+  .compact-padding {
+    @apply p-4;
+  }
+}
+
+/* Custom scrollbars for professional look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
