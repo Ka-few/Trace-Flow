@@ -8,6 +8,7 @@ using TraceFlow.Application.Features.Batches.Commands.CreateBatch;
 using TraceFlow.Application.Features.Batches.Commands.SplitBatch;
 using TraceFlow.Application.Features.Batches.Queries.GetBatches;
 using TraceFlow.Application.Features.Batches.Queries.GetBatchById;
+using TraceFlow.Application.Features.Batches.Commands.UpdateBatchStatus;
 
 namespace TraceFlow.API.Controllers;
 
@@ -56,5 +57,15 @@ public class BatchesController : ControllerBase
     {
         var result = await _mediator.Send(command);
         return Ok(result);
+    }
+
+    [HttpPut("{id}/status")]
+    public async Task<ActionResult> UpdateStatus(Guid id, UpdateBatchStatusCommand command)
+    {
+        if (id != command.BatchId)
+            return BadRequest("ID mismatch.");
+
+        await _mediator.Send(command);
+        return NoContent();
     }
 }
